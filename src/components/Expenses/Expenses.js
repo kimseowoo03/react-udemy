@@ -6,16 +6,20 @@ import { useState } from "react";
 
 const Expenses = (props) => {
   const [filterData, setFilterData] = useState('2020');
-
   const dropdownChangeData = selectData => {
     setFilterData(selectData);
   }
+
+  const filteredExpenses  = props.expenses.filter(expense => {
+    return expense.date.getFullYear().toString() === filterData;
+  })
   return (
     <div>
       <Card className="expenses">
         <ExpenseFilter selected={filterData} onDropdownChangeData={dropdownChangeData}/>
-        {props.expenses.map( expense => 
+        {filteredExpenses.map( expense => 
           <ExpenseItem
+          key={expense.id}
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
