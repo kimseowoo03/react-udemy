@@ -4,7 +4,7 @@ import './Expenses.css';
 import ExpensesList from "./ExpensesList"
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
-
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = (props) => {
   const [filterData, setFilterData] = useState('2020');
@@ -24,6 +24,7 @@ const Expenses = (props) => {
           selected={filterData}
           onDropdownChangeData={dropdownChangeData}
         />
+        <ExpensesChart expenses={filteredExpenses}/>
         <ExpensesList filteredExpenses={filteredExpenses} />
       </Card>
     </div>
