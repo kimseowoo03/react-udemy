@@ -1,9 +1,17 @@
+import React from "react";
+import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
+import Cart from "./components/Cart/Cart";
 const App = () => {
   return (
-    <div>
-      <h2>시작</h2>
-    </div>
+    <React.Fragment>
+      <Header />
+      <main>
+        <Meals />
+      </main>
+      <Cart />
+    </React.Fragment>
   );
-}
+};
 
 export default App;
